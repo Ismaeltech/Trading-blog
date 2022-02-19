@@ -13,7 +13,7 @@
               </ul>
           </div>
       </nav>
-      <menuIcon/>
+      <menuIcon class="menu-icon"/>
       <transition name="mobile-nav">
           <ul>
             <router-link class="link" to="#">Home</router-link>
@@ -66,6 +66,26 @@ header {
                 font-size: 24px;
                 color: #000;
                 text-decoration: none;
+            }
+        }
+
+        .nav-links{
+            position: relative;
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: flex-end;
+
+            ul {
+               margin-right: 32px; 
+
+               .link {
+                   margin-right: 32px;
+               }
+
+               .link:last-child {
+                   margin-right: 0;
+               }
             }
         }
     }
