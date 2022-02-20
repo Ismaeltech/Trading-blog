@@ -143,6 +143,23 @@ header {
             color: #fff;
         }
     }
+
+    .mobile-nav-enter-active,
+    .mobile-nav-leave-active {
+        transition: all 1s ease;
+    }
+
+    .mobile-nav-enter {
+        transform: translate(-250px);
+    }
+
+    .mobile-nav-enter-to {
+        transform: translate(0);
+    }
+
+    .mobile-nav-leave-to {
+        transform: translate(-250px);
+    }
 }
 
 </style>
