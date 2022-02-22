@@ -28,6 +28,9 @@ export default {
             }
         }
     },
+    beforeDestroy() {
+        this.$store.commit("toggleEditPost", false);
+    },
 };
 </script>
 
