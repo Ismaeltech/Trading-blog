@@ -49,7 +49,7 @@
                making a request to see if the market is open or closed, 
                if its open we want to throttle the data for real time prices and if its not we will only submit
                the request once and show the tickers last availavle price at market close
-               (for now we dont want to make too many requests cause we have a limit but if you want to activate this just change this.dontTrottle: false)
+               (for now we dont want to make too many requests cause we have a limit but if you want to activate this just change dontTrottle: false)
             */
             try {
                var options = {
