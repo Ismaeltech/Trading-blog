@@ -48,6 +48,11 @@ export default {
         instagram,
         linkedin,
     },
+    data() {
+      return {
+        user: false
+      }
+    }
 };
 </script>
 
