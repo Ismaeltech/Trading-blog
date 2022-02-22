@@ -1,37 +1,45 @@
 <template>
-  <header>
-      <nav class="container">
-          <div class="branding">
-              <router-link class="header" :to="{ name: 'Home' }">EZ Trading</router-link>
-          </div>
-          <div class="nav-links">
-              <ul v-show="!mobile">
-                  <router-link class="link" to="#">Home</router-link>
-                  <router-link class="link" to="#">Blogs</router-link>
-                  <router-link class="link" to="#">Create Post</router-link>
-                  <router-link class="link" to="#">Login/Register</router-link>
-              </ul>
-          </div>
-      </nav>
-      <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile"/>
-      <transition name="mobile-nav">
-          <ul class="mobile-nav" v-show="mobileNav">
-            <router-link class="link" to="#">Home</router-link>
-            <router-link class="link" to="#">Blogs</router-link>
-            <router-link class="link" to="#">Create Post</router-link>
-            <router-link class="link" to="#">Login/Register</router-link>
-           </ul>
-      </transition>
-  </header>
+    <Fragment>
+        <UtilityBar />
+        <header>
+            <nav class="container">
+                <div class="branding">
+                    <router-link class="header" :to="{ name: 'Home' }">EZ Trading</router-link>
+                </div>
+                <div class="nav-links">
+                    <ul v-show="!mobile">
+                        <router-link class="link" to="#">Home</router-link>
+                        <router-link class="link" to="#">Blogs</router-link>
+                        <router-link class="link" to="#">Create Post</router-link>
+                        <router-link class="link" to="#">Login/Register</router-link>
+                    </ul>
+                </div>
+            </nav>
+            <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile"/>
+            <transition name="mobile-nav">
+                <ul class="mobile-nav" v-show="mobileNav">
+                    <router-link class="link" to="#">Home</router-link>
+                    <router-link class="link" to="#">Blogs</router-link>
+                    <router-link class="link" to="#">Create Post</router-link>
+                    <router-link class="link" to="#">Login/Register</router-link>
+                </ul>
+            </transition>
+        </header>
+    </Fragment>
 </template>
 
 <script>
 import menuIcon from '../assets/Icons/bars-regular.svg';
+import UtilityBar from '../components/UtilityBar.vue'
+import { Fragment } from 'vue-fragment'
+
 
 export default {
     name: 'navigation',
     components: {
-        menuIcon
+        menuIcon,
+        Fragment,
+        UtilityBar
     },
     data() {
         return {
@@ -120,7 +128,7 @@ header {
     .menu-icon {
         cursor: pointer;
         position: absolute;
-        top: 32px;
+        top: 71px;
         right: 25px;
         height: 25px;
         width: auto;
