@@ -22,7 +22,9 @@
       name: "UtilityBar",
       data() {
          return {
-            data: null
+            data: null,
+            throttle: null,
+            dontTrottle: true
          };
       },
       methods: {
@@ -31,21 +33,53 @@
                var options = {
                   method: 'GET',
                   headers: {
-                        'x-api-key': 'vcv2e5rlZL5HJElyVttxe5ruKo9N6WE267mdtc7n',
-                        'accept': 'application/json'
+                     'x-api-key': 'vcv2e5rlZL5HJElyVttxe5ruKo9N6WE267mdtc7n',
+                     'accept': 'application/json'
                   }
                };
                const response = await fetch("https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=tsla,aapl,nvda,nflx,fb,xom,amd,ba", options);
                
                this.data = await response.json();
-               console.log(this.data);
+            } catch (error) {
+               console.log(error);
+            }
+         },
+         async throttleData () {
+            /*
+               making a request to see if the market is open or closed, 
+               if its open we want to throttle the data for real time prices and if its not we will only submit
+               the request once and show the tickers last availavle price at market close
+               (for now we dont want to make too many requests cause we have a limit but if you want to activate this just change this.dontTrottle: false)
+            */
+            try {
+               var options = {
+                  method: 'GET',
+                  headers: {
+                     'x-api-key': 'vcv2e5rlZL5HJElyVttxe5ruKo9N6WE267mdtc7n',
+                     'accept': 'application/json'
+                  }
+               };
+               const response = await fetch("https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=tsla,aapl,nvda,nflx,fb,xom,amd,ba", options);
+               
+               this.data = await response.json();
+
+               if (this.data.quoteResponse.result[0].marketState === 'CLOSED' || this.dontTrottle) {
+                  this.getData();
+               } else {
+                  this.throttle = setInterval(() => {
+                     this.getData();
+                  }, 500)
+               }
             } catch (error) {
                console.log(error);
             }
          }
       },
-      mounted() {
-         this.getData();
+      created() {
+         this.throttleData();
+      },
+      beforeDestroy () {
+         clearInterval(this.throttle)
       }
    };
 </script>
