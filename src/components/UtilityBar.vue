@@ -22,26 +22,26 @@
       name: "UtilityBar",
       data() {
          return {
-               data: null
+            data: null
          };
       },
       methods: {
          async getData() {
-               try {
-                  var options = {
-                     method: 'GET',
-                     headers: {
-                           'x-api-key': 'vcv2e5rlZL5HJElyVttxe5ruKo9N6WE267mdtc7n',
-                           'accept': 'application/json'
-                     }
-                  };
-                  const response = await fetch("https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=tsla,aapl,nvda,nflx,fb,xom,amd,ba", options);
-                  
-                  this.data = await response.json();
-                  console.log(this.data);
-               } catch (error) {
-                  console.log(error);
-               }
+            try {
+               var options = {
+                  method: 'GET',
+                  headers: {
+                        'x-api-key': 'vcv2e5rlZL5HJElyVttxe5ruKo9N6WE267mdtc7n',
+                        'accept': 'application/json'
+                  }
+               };
+               const response = await fetch("https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=tsla,aapl,nvda,nflx,fb,xom,amd,ba", options);
+               
+               this.data = await response.json();
+               console.log(this.data);
+            } catch (error) {
+               console.log(error);
+            }
          }
       },
       mounted() {
