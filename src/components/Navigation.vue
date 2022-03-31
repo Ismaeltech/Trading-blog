@@ -193,6 +193,9 @@ header {
         border-radius: 50%;
         color: #fff;
         background-color: #303030;
+        @media (max-width: 750px) {
+        right: 45px;
+        }
 
         span {
           pointer-events: none;
@@ -270,7 +273,7 @@ header {
     .menu-icon {
         cursor: pointer;
         position: absolute;
-        top: 73px;
+        top: 27px;
         right: 25px;
         height: 25px;
         width: auto;
