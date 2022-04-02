@@ -1,6 +1,5 @@
 <template>
     <Fragment>
-        <UtilityBar />
         <header>
             <nav class="container">
                 <div class="branding">
@@ -66,7 +65,6 @@ import adminIcon from "../assets/Icons/user-crown-light.svg";
 import signOutIcon from "../assets/Icons/sign-out-alt-regular.svg";
 import firebase from "firebase/app";
 import "firebase/auth";
-import UtilityBar from '../components/UtilityBar.vue'
 import { Fragment } from 'vue-fragment'
 
 
@@ -75,7 +73,6 @@ export default {
     components: {
         menuIcon,
         Fragment,
-        UtilityBar,
         userIcon,
         adminIcon,
         signOutIcon,

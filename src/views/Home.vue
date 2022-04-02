@@ -10,6 +10,9 @@
         </div>
       </div>
     </div>
+    <div class="chart">
+      <Chart />
+    </div>
     <div v-if="!user" class="updates">
       <div class="container">
         <h2>Never miss a post. Register for your free account today!</h2>
@@ -25,9 +28,11 @@
 import BlogPost from "../components/BlogPost";
 import BlogCard from "../components/BlogCard";
 import Arrow from "../assets/Icons/arrow-right-light.svg";
+import Chart from '../components/Chart'
+
 export default {
   name: "Home",
-  components: { BlogPost, BlogCard, Arrow },
+  components: { BlogPost, BlogCard, Arrow, Chart },
   data() {
     return {
       welcomeScreen: {
@@ -60,6 +65,17 @@ export default {
     font-weight: 300;
     font-size: 28px;
     margin-bottom: 32px;
+  }
+}
+
+.chart {
+  height: 500px;
+
+  @media(min-width: 800px) {
+    height: 850px;
+    padding-top: 8rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 }
 

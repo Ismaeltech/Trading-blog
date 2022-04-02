@@ -71,17 +71,19 @@
                   }, 500)
                }
             } catch (error) {
-               if (this.data === null) {
-                  document.querySelector('.menu-icon').classList.add('raise-burger')
-                  this.$destroy()
-               }
-
                console.log(error);
             }
          }
       },
       created() {
          this.throttleData();
+
+         setTimeout(() => {
+            if (this.data === null) {
+               document.querySelector('.menu-icon').classList.add('raise-burger')
+               this.$destroy()
+            }
+         },100)
       },
       beforeDestroy () {
          clearInterval(this.throttle)
