@@ -70,12 +70,15 @@ export default {
 
 .chart {
   height: 500px;
+  bottom: 5rem;
+  padding-bottom: 5rem;
 
   @media(min-width: 800px) {
     height: 850px;
     padding-top: 8rem;
     padding-left: 5rem;
     padding-right: 5rem;
+    padding-bottom: 5rem;
   }
 }
 
