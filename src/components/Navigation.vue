@@ -46,7 +46,7 @@
         </div>
       </div>
     </nav>
-            <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile"/>
+            <menuIcon @click="toggleMobileNav" :class="this.$options.components.UtilityBar ? 'lower-burger': 'raise-burger'" class="menu-icon" v-show="mobile"/>
             <transition name="mobile-nav">
                 <ul class="mobile-nav" v-show="mobileNav">
                     <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
@@ -273,10 +273,17 @@ header {
     .menu-icon {
         cursor: pointer;
         position: absolute;
-        top: 27px;
         right: 25px;
         height: 25px;
         width: auto;
+    }
+
+    .lower-burger {
+        top: 73px; 
+    }
+
+    .raise-burger {
+        top: 27px;
     }
 
     .mobile-nav {
