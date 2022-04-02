@@ -71,6 +71,11 @@
                   }, 500)
                }
             } catch (error) {
+               if (this.data === null) {
+                  document.querySelector('.menu-icon').classList.add('raise-burger')
+                  this.$destroy()
+               }
+
                console.log(error);
             }
          }

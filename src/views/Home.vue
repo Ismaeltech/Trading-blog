@@ -78,6 +78,8 @@ export default {
       display: flex;
       font-size: 14px;
       text-decoration: none;
+      height: 41.5px;
+
       @media(min-width: 800px) {
         margin-left: auto;
       }
